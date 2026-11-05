@@ -1,60 +1,108 @@
-💳 Credit Card Fraud Detection using Machine Learning
-📌 Overview
+# Credit Card Fraud Detection Using Machine Learning
 
-This project aims to detect fraudulent credit card transactions using Machine Learning.
-By analyzing transaction patterns, the model can distinguish between normal and fraudulent activities, helping financial institutions flag suspicious transactions early and reduce financial risk.
+A machine learning project that identifies potentially fraudulent credit card transactions using a Random Forest classifier. The project focuses on handling highly imbalanced transaction data and evaluating model performance using classification metrics beyond accuracy.
 
-The dataset is highly imbalanced — only about 0.02% of transactions are fraudulent — so the project focuses on using suitable metrics like precision, recall, and F1-score, rather than accuracy alone.
+## Project Overview
 
-🧠 Key Features
+Credit card fraud detection is a challenging classification problem because fraudulent transactions represent only a very small proportion of total transactions. This project uses exploratory data analysis and machine learning techniques to distinguish legitimate transactions from fraudulent ones.
 
-Detects fraudulent transactions using Random Forest Classifier
+A Random Forest classifier is trained and evaluated to assess its ability to detect fraudulent transactions while minimizing false positives.
 
-Handles imbalanced datasets effectively
+## Dataset
 
-Uses precision, recall, F1-score, and MCC to evaluate performance
+- **Total transactions:** 284,807
+- **Fraudulent transactions:** 492
+- **Legitimate transactions:** 284,315
+- **Fraud proportion:** Approximately 0.173%
+- **Classification type:** Binary classification
 
-Visualizes transaction patterns and feature correlations with Matplotlib & Seaborn
+The dataset is highly imbalanced, making precision, recall, F1-score, and Matthews Correlation Coefficient (MCC) important evaluation metrics.
 
-Ready for integration into fraud prevention systems
+## Technologies Used
 
-⚡ Project Workflow
+- **Programming Language:** Python
+- **Data Processing:** Pandas, NumPy
+- **Machine Learning:** Scikit-learn
+- **Data Visualization:** Matplotlib, Seaborn
+- **Environment:** Jupyter Notebook
 
- 1.Import Libraries
-    Load required Python packages for data analysis and modeling.
+## Project Workflow
 
- 2.Load & Explore Data
-    Examine structure, class distribution, and basic statistics.
+1. **Data Loading and Exploration:** Loaded the transaction dataset and examined its structure, statistical properties, and class distribution.
+2. **Exploratory Data Analysis:** Analyzed transaction amounts, class imbalance, and feature correlations using visualizations.
+3. **Data Preprocessing:** Separated input features and target labels and divided the dataset into 80% training and 20% testing subsets.
+4. **Model Development:** Implemented and trained a Random Forest classifier to distinguish fraudulent transactions from legitimate ones.
+5. **Model Evaluation:** Assessed predictions using precision, recall, F1-score, Matthews Correlation Coefficient, and a confusion matrix.
 
-3.EDA (Exploratory Data Analysis)
+## Model Performance
 
-    Visualize fraud vs normal transaction amounts
+The Random Forest classifier achieved the following results on the held-out test dataset:
 
-    Check correlation between features
+| Evaluation Metric | Score |
+|---|---:|
+| Precision | 97.5% |
+| Recall | 78.6% |
+| F1-Score | 87.0% |
+| Matthews Correlation Coefficient (MCC) | 0.875 |
 
-    Identify data imbalance
+### Performance Analysis
 
-4.Data Preprocessing
+- **Precision (97.5%):** A high proportion of transactions predicted as fraudulent were actually fraudulent.
+- **Recall (78.6%):** The model successfully identified approximately 78.6% of actual fraudulent transactions.
+- **F1-Score (87.0%):** Demonstrates the balance between precision and recall.
+- **MCC (0.875):** Indicates strong overall classification performance while accounting for both classes.
 
-    Separate features (X) and target (Y)
+These results highlight the model's ability to identify fraudulent transactions despite the significant class imbalance.
 
-    Split into training (80%) and test (20%) sets
+## Repository Structure
 
-5.Model Building
+```text
+Credit-Card-Fraud-Detection/
+│
+├── ML___Credit_Card_Fraud_Detection-.ipynb
+└── README.md
+```
 
-    Train Random Forest Classifier
+## How to Run the Project
 
-    Make predictions on the test set
+1. Clone the repository:
 
-6.Model Evaluation
+```bash
+git clone https://github.com/Hema4640/Credit-Card-Fraud-Detection.git
+```
 
-    Accuracy, Precision, Recall, F1-score, MCC
+2. Navigate to the project directory:
 
-    Confusion Matrix visualization
+```bash
+cd Credit-Card-Fraud-Detection
+```
 
-7.Future Scope
+3. Install the required libraries:
 
-    SMOTE / undersampling / oversampling
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn jupyter
+```
 
-    Advanced ML or deep learning models (XGBoost, LightGBM, LSTM)
-    Real-time deployment via API or web app
+4. Open the Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+5. Open `ML___Credit_Card_Fraud_Detection-.ipynb` and execute the notebook cells.
+
+**Note:** Download the dataset separately and update its file path in the notebook if necessary.
+
+## Future Enhancements
+
+- Explore class imbalance handling techniques such as SMOTE and undersampling.
+- Compare Random Forest with advanced classifiers such as XGBoost and LightGBM.
+- Perform hyperparameter tuning to investigate potential performance improvements.
+- Develop a real-time fraud detection application using Flask or FastAPI.
+
+## Author
+
+**D. Hema Sree**
+
+- GitHub: [Hema4640](https://github.com/Hema4640)
+- Project Repository: [Credit Card Fraud Detection](https://github.com/Hema4640/Credit-Card-Fraud-Detection)
